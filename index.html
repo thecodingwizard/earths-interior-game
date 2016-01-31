@@ -8,134 +8,143 @@
         <link rel="stylesheet" href="styles/index.css">
     </head>
     <body>
-        <audio loop id="bg-music">
-            <source src="media/music.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
         <div class="background"></div>
-        <button class="button small-button top-right-btn" id="mute">Mute</button>
-        <button class="button small-button top-left-btn" id="back" style="display:none;">Back</button>
-        <center>
-            <h1 class="padding-not-margin" id="title"></h1>
-        </center>
-        <div class="container" id="homeContainer">
-            <div class="row">
-                <div class="col col-md-4">
-                    <h3>Choose where to begin</h3>
-                    <button class="button" id="homeIntroduction">Introduction</button>
-                    <button class="button" id="homeBootcamp">Bootcamp</button>
-                    <button class="button" id="homeTest">Test</button>
-                    <button class="button" id="homeJeopardy">Jeopardy 2.0!</button>
-                    <hr>
-                    <h3>Settings...</h3>
-                    <button class="button" id="changeGender">Change Gender</button>
-                </div>
-                <div class="col col-md-8">
-                    <h3>Or Watch A Trailer</h3>
-                    <video id="vidTrailer" class="video-js" controls width="auto" height="auto">
-                        <p class="vjs-no-js">
-                            To view this video please enable JavaScript, and consider upgrading to a web browser that
-                            <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-                        </p>
-                    </video>
-                </div>
-            </div>
-        </div>
-        <div class="container" id="introContainer">
-            <h3>To Know What This Is All About</h3>
-            <video id="vid" class="video-js" controls width="auto" height="auto">
-                <p class="vjs-no-js">
-                    To view this video please enable JavaScript, and consider upgrading to a web browser that
-                    <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-                </p>
-            </video>
-            <center><button class="button center-text" id="introNext">Continue</button></center>
-        </div>
-        <div class="container" id="bootcampContainer">
-            <div class="row">
-                <h3>To Learn Everything You Need To Know To Win</h3>
-                <div class="col col-md-4">
-                    <h3>Choose Which Part of Earth to Learn About</h3>
-                    <button class="button bootcamp-button bootcamp-crust">Crust</button><br>
-                    <button class="button bootcamp-button bootcamp-mantle">Mantle</button><br>
-                    <button class="button bootcamp-button bootcamp-core">Core</button><br>
-                    <button class="button bootcamp-button bootcamp-chooser" style="display:none">Open Chooser</button>
-                    <button class="button bootcamp-button bootcamp-continue">Continue</button>
-                </div>
-                <div class="col col-md-8 page" id="homepage">
-                    <svg width="400px" height="400px" viewBox="0 0 400 400" id="earth" style="width:100%;height:auto;">
-                    	<circle id="crust" class="transition" cx="175" cy="175" stroke="black" style="stroke-width: 1px; vector-effect: non-scaling-stroke; cursor:pointer" r="140" fill="saddlebrown"/>
-                    	<circle id="mantle" class="transition" cx="175" cy="175" stroke="black" style="stroke-width: 1px; vector-effect: non-scaling-stroke; cursor:pointer" r="120" fill="coral" />
-                    	<circle id="core" class="transition" cx="175" cy="175" stroke="black" style="stroke-width: 1px; vector-effect: non-scaling-stroke; cursor:pointer" r="50" fill="crimson"/>
-                    </svg>
-                </div>
-                <div class="col col-md-8 page bootcamp-page" id="crustpage">
-                    <h3>Earth's Crust</h3>
-                    <div class="bootcamp-section bootcamp-section-crust" id="crust-pt1">
-                        <h4>Where is the Crust?</h4>
-                        <img src="http://www.ducksters.com/science/earth_composition.gif" class="img-responsive">
-                        <p>
-                            Hope you can read a picture.
-                        </p>
+        <div class="container-big">
+            <button class="button small-button top-right-btn" id="mute">Mute</button>
+            <button class="button small-button top-left-btn" id="back" style="display:none;">Back</button>
+            <center>
+                <h1 class="padding-not-margin" id="title"></h1>
+            </center>
+            <div class="container" id="homeContainer">
+                <div class="row">
+                    <div class="col col-md-4">
+                        <h3>Choose where to begin</h3>
+                        <button class="button" id="homeIntroduction">Introduction</button>
+                        <button class="button" id="homeBootcamp">Bootcamp</button>
+                        <button class="button" id="homeTest">Test</button>
+                        <button class="button" id="homeJeopardy">Jeopardy 2.0!</button>
+                        <hr>
+                        <h3>Settings...</h3>
+                        <button class="button" id="changeGender">Change Gender</button>
                     </div>
-                    <div class="bootcamp-section bootcamp-section-crust" id="crust-pt2">
-                        <h4>How Thick is the Continental Crust?</h4>
-                        <p>
-                            On average, it&apos;s about 30 kilometers thick.
-                        </p>
+                    <div class="col col-md-8">
+                        <h3>Or Watch A Trailer</h3>
+                        <video id="vidTrailer" class="video-js" controls width="auto" height="auto">
+                            <p class="vjs-no-js">
+                                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                                <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                            </p>
+                        </video>
                     </div>
-                    <div class="bootcamp-section bootcamp-section-crust" id="crust-pt3">
-                        <h4>How Thick is Oceanic Crust?</h4>
-                        <p>
-                            On average, it&apos;s about 5 kilometers thick.
-                        </p>
-                    </div>
-                    <button class="button" style="float:left;display:none;" id="crustBack">Back</button>
-                    <button class="button" style="float:right;display:none;" id="crustNext">Next</button>
-                    <div style="clear:both;"></div>
-                </div>
-                <div class="col col-md-8 page bootcamp-page" id="mantlepage">
-                    <h3>Earth's Mantle</h3>
-                    <div class="bootcamp-section bootcamp-section-mantle" id="mantle-pt1">
-                        Hi
-                    </div>
-                    <div class="bootcamp-section bootcamp-section-mantle" id="mantle-pt2">
-                        Hi 2
-                    </div>
-                    <div class="bootcamp-section bootcamp-section-mantle" id="mantle-pt3">
-                        Hi 3
-                    </div>
-                    <button class="button" style="float:left;display:none;" id="mantleBack">Back</button>
-                    <button class="button" style="float:right;display:none;" id="mantleNext">Next</button>
-                    <div style="clear:both;"></div>
-                </div>
-                <div class="col col-md-8 page bootcamp-page" id="corepage">
-                    <h3>Earth's Core</h3>
-                    <div class="bootcamp-section bootcamp-section-core" id="core-pt1">
-                        Hi2
-                    </div>
-                    <div class="bootcamp-section bootcamp-section-core" id="core-pt2">
-                        Hi2 1
-                    </div>
-                    <div class="bootcamp-section bootcamp-section-core" id="core-pt3">
-                        Hi2 2
-                    </div>
-                    <button class="button" style="float:left;display:none;" id="coreBack">Back</button>
-                    <button class="button" style="float:right;display:none;" id="coreNext">Next</button>
-                    <div style="clear:both;"></div>
                 </div>
             </div>
+            <div class="container" id="introContainer">
+                <h3>To Know What This Is All About</h3>
+                <video id="vid" class="video-js" controls width="auto" height="auto">
+                    <p class="vjs-no-js">
+                        To view this video please enable JavaScript, and consider upgrading to a web browser that
+                        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                    </p>
+                </video>
+                <center><button class="button center-text" id="introNext">Continue</button></center>
+            </div>
+            <div class="container" id="bootcampContainer">
+                <div class="row">
+                    <h3>To Learn Everything You Need To Know To Win</h3>
+                    <div class="col col-md-4">
+                        <h3>Choose Which Part of Earth to Learn About</h3>
+                        <button class="button bootcamp-button bootcamp-crust">Crust</button><br>
+                        <button class="button bootcamp-button bootcamp-mantle">Mantle</button><br>
+                        <button class="button bootcamp-button bootcamp-core">Core</button><br>
+                        <button class="button bootcamp-button bootcamp-chooser" style="display:none">Open Chooser</button>
+                        <button class="button bootcamp-button bootcamp-continue">Continue</button>
+                    </div>
+                    <div class="col col-md-8 page" id="homepage">
+                        <svg width="400px" height="400px" viewBox="0 0 400 400" id="earth" style="width:100%;height:auto;">
+                        	<circle id="crust" class="transition" cx="175" cy="175" stroke="black" style="stroke-width: 1px; vector-effect: non-scaling-stroke; cursor:pointer" r="140" fill="saddlebrown"/>
+                        	<circle id="mantle" class="transition" cx="175" cy="175" stroke="black" style="stroke-width: 1px; vector-effect: non-scaling-stroke; cursor:pointer" r="120" fill="coral" />
+                        	<circle id="core" class="transition" cx="175" cy="175" stroke="black" style="stroke-width: 1px; vector-effect: non-scaling-stroke; cursor:pointer" r="50" fill="crimson"/>
+                        </svg>
+                    </div>
+                    <div class="col col-md-8 page bootcamp-page" id="crustpage">
+                        <h3>Earth's Crust</h3>
+                        <div class="bootcamp-section bootcamp-section-crust" id="crust-pt1">
+                            <h4>Where is the Crust?</h4>
+                            <img src="http://www.ducksters.com/science/earth_composition.gif" class="img-responsive">
+                            <p>
+                                Hope you can read a picture.
+                            </p>
+                        </div>
+                        <div class="bootcamp-section bootcamp-section-crust" id="crust-pt2">
+                            <h4>How Thick is the Continental Crust?</h4>
+                            <p>
+                                On average, it&apos;s about 30 kilometers thick.
+                            </p>
+                        </div>
+                        <div class="bootcamp-section bootcamp-section-crust" id="crust-pt3">
+                            <h4>How Thick is Oceanic Crust?</h4>
+                            <p>
+                                On average, it&apos;s about 5 kilometers thick.
+                            </p>
+                        </div>
+                        <button class="button" style="float:left;display:none;" id="crustBack">Back</button>
+                        <button class="button" style="float:right;display:none;" id="crustNext">Next</button>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="col col-md-8 page bootcamp-page" id="mantlepage">
+                        <h3>Earth's Mantle</h3>
+                        <div class="bootcamp-section bootcamp-section-mantle" id="mantle-pt1">
+                            Hi
+                        </div>
+                        <div class="bootcamp-section bootcamp-section-mantle" id="mantle-pt2">
+                            Hi 2
+                        </div>
+                        <div class="bootcamp-section bootcamp-section-mantle" id="mantle-pt3">
+                            Hi 3
+                        </div>
+                        <button class="button" style="float:left;display:none;" id="mantleBack">Back</button>
+                        <button class="button" style="float:right;display:none;" id="mantleNext">Next</button>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="col col-md-8 page bootcamp-page" id="corepage">
+                        <h3>Earth's Core</h3>
+                        <div class="bootcamp-section bootcamp-section-core" id="core-pt1">
+                            Hi2
+                        </div>
+                        <div class="bootcamp-section bootcamp-section-core" id="core-pt2">
+                            Hi2 1
+                        </div>
+                        <div class="bootcamp-section bootcamp-section-core" id="core-pt3">
+                            Hi2 2
+                        </div>
+                        <button class="button" style="float:left;display:none;" id="coreBack">Back</button>
+                        <button class="button" style="float:right;display:none;" id="coreNext">Next</button>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" id="testContainer">
+                
+            </div>
+            <div style="clear:both;"></div>
         </div>
-        <div class="container" id="testContainer">
-            
-        </div>
-        <div class="container container-showing" id="messagesContainer">
-            <h4>You&apos;re going to LOSE!!!</h4>
-        </div>
+        <footer class="footer container container-normal">
+            <div id="messagesContainer">
+                <div class="message">
+                    <p class="message-content" id="message-content" style="display:none;">
+                        You&apos;re going to LOSE!!!
+                    </p>
+                    <img class="message-pic" src="avatars/female-avatar-1.jpg" id="message-pic" style="display:none;">
+                    <span class="message-time" id="message-time" style="display:none;">2:14 PM</span>
+                </div>
+            </div>
+        </footer>
         <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="https://vjs.zencdn.net/5.5.3/video.js"></script>
         <script src="scripts/libs/bootbox.min.js"></script>
+        <script src="scripts/insults-female.js"></script>
+        <script src="scripts/insults-male.js"></script>
         <script src="scripts/controllers/home.js"></script>
         <script src="scripts/controllers/bootcamp.js"></script>
         <script src="scripts/controllers/test.js"></script>

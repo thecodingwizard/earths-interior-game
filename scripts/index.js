@@ -1,6 +1,7 @@
 var music_playing;
 var music;
 var backStack = [];
+var timeBeforeNextInsult = 30000;
 
 $(document).ready(function() {
     
@@ -185,8 +186,24 @@ function handleContainers() {
         },
         mute: function() {
             muteMusic();
-        }
+        },
+        showMessage: function(data) {
+            this.lastInsultTime = Date.now();
+            $("#message-content, #message-time, #message-pic").fadeOut(function() {
+                $("#message-content").html(data.message);
+                if (data.pic) {
+                    $("#message-pic").setAttribute("src", data.pic);
+                }
+                $("#message-time").text(new Date().toLocaleTimeString());
+                $(this).fadeIn();
+            });
+        },
+        lastInsultTime: 0
     };
+    
+    showInsult(controller);
+    
+    setTimeout(showInsult(controller), timeBeforeNextInsult);
     
     $("#back").click(function() {
         console.log(backStack);
@@ -220,6 +237,28 @@ function handleContainers() {
     $homeContainer.show();
 }
 
+var insultIndex = 0;
+function showInsult(controller) {
+    if (Date.now() - controller.lastInsultTime > timeBeforeNextInsult - 1000) {
+        if (window.localStorage.gender == "male") {
+            if (window.insults.male.length <= insultIndex) {
+                insultIndex = 0;
+            }
+            controller.showMessage(window.insults.male[insultIndex]);
+            insultIndex++;
+        } else {
+            if (window.insults.female.length <= insultIndex) {
+                insultIndex = 0;
+            }
+            controller.showMessage(window.insults.female[insultIndex]);
+            insultIndex++;
+        }
+    }
+    setTimeout(function() {
+        showInsult(controller);
+    }, timeBeforeNextInsult);
+}
+
 function updateBackButton() {
     console.log(backStack);
     if (backStack.length === 0) {
@@ -230,10 +269,14 @@ function updateBackButton() {
 }
 
 function handleMusic() {
-    music = $("#bg-music")[0];
-    music_playing = true;
+    music = new Audio("media/music.mp3"); 
     music.volume = 0.5;
+    music.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    }, false);
     music.play();
+    music_playing = true;
     
     $("#mute").click(function() {
         if (music_playing) {
