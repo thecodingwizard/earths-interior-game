@@ -30,9 +30,9 @@ window.pages.home = {
         });
         
         videojs('vidTrailer').ready(function() {
-            var vid = "male-trailer-vid.mp4";
+            var vid = "media/male-trailer-vid.mp4";
             if (window.localStorage.gender == "female") {
-                vid = "female-trailer-vid.mp4";
+                vid = "media/female-trailer-vid.mp4";
             }
             this.src([
                 { type: "video/mp4", src: vid }

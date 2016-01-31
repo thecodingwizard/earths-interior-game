@@ -8,9 +8,9 @@ window.pages.intro = {
     vid: null,
     init: function(controller) {
         videojs('vid').ready(function() {
-            var vid = "male-intro-vid.mp4";
+            var vid = "media/male-intro-vid.mp4";
             if (window.localStorage.gender == "female") {
-                vid = "female-intro-vid.mp4";
+                vid = "media/female-intro-vid.mp4";
             }
             this.src([
                 { type: "video/mp4", src: vid }
