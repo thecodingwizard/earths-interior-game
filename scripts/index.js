@@ -192,7 +192,13 @@ function handleContainers() {
             $("#message-content, #message-time, #message-pic").fadeOut(function() {
                 $("#message-content").html(data.message);
                 if (data.pic) {
-                    $("#message-pic").setAttribute("src", data.pic);
+                    $("#message-pic").attr("src", data.pic);
+                } else {
+                    if (window.localStorage.gender == "male") {
+                        $("#message-pic").attr("src", "avatars/female-avatar-1.jpg");
+                    } else {
+                        $("#message-pic").attr("src", "avatars/male-avatar-1.jpg");
+                    }
                 }
                 $("#message-time").text(new Date().toLocaleTimeString());
                 $(this).fadeIn();
