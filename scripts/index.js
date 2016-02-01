@@ -172,9 +172,9 @@ function handleContainers() {
     
     updateBackButton();
     
-    $(".button, .sfx-page-switch").click(function() {
+    $(".button, .sfx-button-click").click(function() {
         if (!muted) {
-            var sfx = new Audio("media/robot-beep.mp3"); 
+            var sfx = new Audio("media/button-click.mp3"); 
             sfx.volume = 0.8;
             sfx.play();
         }
