@@ -1,5 +1,6 @@
 var music_playing;
 var music;
+var muted = false;
 var backStack = [];
 var timeBeforeNextInsult = 30000;
 
@@ -170,6 +171,14 @@ function handleContainers() {
     var currentPage = "home";
     
     updateBackButton();
+    
+    $(".button, .sfx-page-switch").click(function() {
+        if (!muted) {
+            var sfx = new Audio("media/robot-beep.mp3"); 
+            sfx.volume = 0.8;
+            sfx.play();
+        }
+    })
     
     var controller = {
         startBootcamp: function(skipBackStack) {
@@ -366,7 +375,7 @@ function updateBackButton() {
 
 function handleMusic() {
     music = new Audio("media/music.mp3"); 
-    music.volume = 0.5;
+    music.volume = 0.75;
     music.addEventListener('ended', function() {
         this.currentTime = 0;
         this.play();
@@ -374,13 +383,24 @@ function handleMusic() {
     music.play();
     music_playing = true;
     
-    $("#mute").click(function() {
+    $("#muteMusic").click(function() {
         if (music_playing) {
             muteMusic();
         } else {
             music.play();
             music_playing = true;
+            $(this).text("Mute Music");
+        }
+    });
+    
+    $("#mute").click(function() {
+        if (muted) {
+            muted = false;
             $(this).text("Mute");
+        } else {
+            $(this).text("Unmute");
+            muted = true;
+            muteMusic();
         }
     });
 }
@@ -388,7 +408,7 @@ function handleMusic() {
 function muteMusic() {
     music.pause();
     music_playing = false;
-    $("#mute").text("Unmute");
+    $("#muteMusic").text("Unmute Music");
 }
 
 function speak(txt) {

@@ -10,7 +10,6 @@
     <body>
         <div class="background"></div>
         <div class="container-big">
-            <button class="button small-button top-right-btn" id="mute">Mute</button>
             <button class="button small-button top-left-btn" id="back" style="display:none;">Back</button>
             <center>
                 <h1 class="padding-not-margin" id="title"></h1>
@@ -27,6 +26,8 @@
                         <h3>Settings...</h3>
                         <button class="button" id="changeGender">Change Gender</button>
                         <button class="button" id="changePoison">Change Poison</button>
+                        <button class="button" id="muteMusic">Mute Music</button>
+                        <button class="button" id="mute">Mute</button>
                     </div>
                     <div class="col col-md-8">
                         <h3>Or Watch A Trailer</h3>
@@ -62,9 +63,9 @@
                     </div>
                     <div class="col col-md-8 page" id="homepage">
                         <svg width="400px" height="400px" viewBox="0 0 350 350" id="earth" style="width:100%;height:auto;max-width:600px;">
-                        	<circle id="crust" class="transition" cx="175" cy="175" stroke="black" style="stroke-width: 1px; vector-effect: non-scaling-stroke; cursor:pointer" r="140" fill="saddlebrown"/>
-                        	<circle id="mantle" class="transition" cx="175" cy="175" stroke="black" style="stroke-width: 1px; vector-effect: non-scaling-stroke; cursor:pointer" r="120" fill="coral" />
-                        	<circle id="core" class="transition" cx="175" cy="175" stroke="black" style="stroke-width: 1px; vector-effect: non-scaling-stroke; cursor:pointer" r="50" fill="crimson"/>
+                        	<circle id="crust" class="transition sfx-page-switch" cx="175" cy="175" stroke="black" style="stroke-width: 1px; vector-effect: non-scaling-stroke; cursor:pointer" r="140" fill="saddlebrown"/>
+                        	<circle id="mantle" class="transition sfx-page-switch" cx="175" cy="175" stroke="black" style="stroke-width: 1px; vector-effect: non-scaling-stroke; cursor:pointer" r="120" fill="coral" />
+                        	<circle id="core" class="transition sfx-page-switch" cx="175" cy="175" stroke="black" style="stroke-width: 1px; vector-effect: non-scaling-stroke; cursor:pointer" r="50" fill="crimson"/>
                         </svg>
                     </div>
                     <div class="col col-md-8 page bootcamp-page" id="crustpage">
@@ -137,7 +138,7 @@
             </div>
         </div>
         <footer class="footer container container-normal">
-            <div id="messagesContainer">
+            <div id="messagesContainer" class="sfx-page-switch">
                 <div class="message">
                     <p class="message-content" id="message-content" style="display:none;">
                         You&apos;re going to LOSE!!!
