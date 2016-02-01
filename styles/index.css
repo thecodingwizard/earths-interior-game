@@ -77,13 +77,15 @@ p {
 }
 @media(min-width:992px) {
     .big-modal .modal-dialog {
-        margin: auto;
+        margin-left: auto;
+        margin-right: auto;
         width: 850px;
     }
 }
 @media(min-width:1200px) {
     .big-modal .modal-dialog {
-        margin: auto;
+        margin-left: auto;
+        margin-right: auto;
         width: 950px;
     }
 }
