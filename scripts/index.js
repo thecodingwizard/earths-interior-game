@@ -2,9 +2,36 @@ var music_playing;
 var music;
 var muted = false;
 var backStack = [];
+var nice = false;
 var timeBeforeNextInsult = 30000;
+var lowBandwith = false; 
+
+function enterEducationMode() {
+    window.localStorage.setItem("eduMode", true);
+    window.location.reload();
+}
+
+function exitEducationMode() {
+    window.localStorage.removeItem("eduMode");
+    window.location.reload();
+}
+
+function enterLowBandwithMode() {
+    window.localStorage.setItem("lowBandwith", true);
+    window.location.reload();
+}
+
+function exitLowBandwithMode() {
+    window.localStorage.removeItem("lowBandwith");
+    window.location.reload();
+}
 
 $(document).ready(function() {
+    if ("lowBandwith" in window.localStorage) {
+        lowBandwith = true;
+        $("#mute").hide();
+        $("#muteMusic").hide();
+    }
     if (!("gender" in window.localStorage)) {
         bootbox.dialog({
             closeButton: false,
@@ -157,6 +184,12 @@ function genderPickedCallback() {
 }
 
 function handleContainers() {
+    if ("eduMode" in window.localStorage) {
+        nice = true;
+        $("#messagesContainer").hide();
+        $("#eduContainer").show();
+        $("#beNice").hide();
+    }
     var $homeContainer = $("#homeContainer");
     var $bootcampContainer = $("#bootcampContainer");
     var $introContainer = $("#introContainer");
@@ -173,7 +206,7 @@ function handleContainers() {
     updateBackButton();
     
     $(".button, .sfx-button-click").click(function() {
-        if (!muted) {
+        if (!muted && !lowBandwith) {
             var sfx = new Audio("media/button-click.mp3"); 
             sfx.volume = 0.8;
             sfx.play();
@@ -289,6 +322,10 @@ function handleContainers() {
             muteMusic();
         },
         showMessage: function(message) {
+            if (nice) {
+                console.log("Since we are nice, We are not goint to insult you.");
+                return;
+            }
             this.lastInsultTime = Date.now();
             $("#message-content, #message-time, #message-pic").fadeOut(function() {
                 $("#message-content").html(message);
@@ -327,6 +364,20 @@ function handleContainers() {
                 break;
         }
         updateBackButton();
+    });
+    
+    $("#beNice").click(function() {
+        if (nice) {
+            $(this).text("Be Nice to Me");
+            nice = false;
+            $("#messagesContainer").show();
+            $("#niceContainer").hide();
+        } else {
+            $(this).text("Be Mean to Me");
+            nice = true;
+            $("#messagesContainer").hide();
+            $("#niceContainer").show();
+        }
     });
     
     homeController.init(controller);
@@ -374,41 +425,45 @@ function updateBackButton() {
 }
 
 function handleMusic() {
-    music = new Audio("media/music.mp3"); 
-    music.volume = 0.75;
-    music.addEventListener('ended', function() {
-        this.currentTime = 0;
-        this.play();
-    }, false);
-    music.play();
-    music_playing = true;
-    
-    $("#muteMusic").click(function() {
-        if (music_playing) {
-            muteMusic();
-        } else {
-            music.play();
-            music_playing = true;
-            $(this).text("Mute Music");
-        }
-    });
-    
-    $("#mute").click(function() {
-        if (muted) {
-            muted = false;
-            $(this).text("Mute");
-        } else {
-            $(this).text("Unmute");
-            muted = true;
-            muteMusic();
-        }
-    });
+    if (!lowBandwith) {
+        music = new Audio("media/music.mp3"); 
+        music.volume = 0.75;
+        music.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        }, false);
+        music.play();
+        music_playing = true;
+        
+        $("#muteMusic").click(function() {
+            if (music_playing) {
+                muteMusic();
+            } else {
+                music.play();
+                music_playing = true;
+                $(this).text("Mute Music");
+            }
+        });
+        
+        $("#mute").click(function() {
+            if (muted) {
+                muted = false;
+                $(this).text("Mute");
+            } else {
+                $(this).text("Unmute");
+                muted = true;
+                muteMusic();
+            }
+        });
+    }
 }
 
 function muteMusic() {
-    music.pause();
-    music_playing = false;
-    $("#muteMusic").text("Unmute Music");
+    if (!lowBandwith) {
+        music.pause();
+        music_playing = false;
+        $("#muteMusic").text("Unmute Music");
+    }
 }
 
 function speak(txt) {

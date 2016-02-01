@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://vjs.zencdn.net/5.5.3/video-js.css" rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="scripts/libs/ProgressBarWars.css">
         <link rel="stylesheet" href="styles/index.css">
     </head>
     <body>
@@ -28,6 +29,7 @@
                         <button class="button" id="changePoison">Change Poison</button>
                         <button class="button" id="muteMusic">Mute Music</button>
                         <button class="button" id="mute">Mute</button>
+                        <button class="button" id="beNice">Be Nice to Me</button>
                     </div>
                     <div class="col col-md-8">
                         <h3>Or Watch A Trailer</h3>
@@ -37,6 +39,7 @@
                                 <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
                             </p>
                         </video>
+                        <p>Please note: You can skip around if you want.</p>
                     </div>
                 </div>
             </div>
@@ -73,9 +76,6 @@
                         <div class="bootcamp-section bootcamp-section-crust" id="crust-pt1">
                             <h4>Where is the Crust?</h4>
                             <img src="http://www.ducksters.com/science/earth_composition.gif" class="img-responsive">
-                            <p>
-                                Hope you can read a picture.
-                            </p>
                         </div>
                         <div class="bootcamp-section bootcamp-section-crust" id="crust-pt2">
                             <h4>How Thick is the Continental Crust?</h4>
@@ -89,6 +89,18 @@
                                 On average, it&apos;s about 5 kilometers thick.
                             </p>
                         </div>
+                        <div class="bootcamp-section bootcamp-section-crust" id="crust-pt4">
+                            <h4>What is the crust made of?</h4>
+                            <p>
+                                The crust is made of the following materials: oxygen, silicon, aluminum, iron, calcium, sodium, potassium, and magnesium.
+                            </p>
+                        </div>
+                        <div class="bootcamp-section bootcamp-section-crust" id="crust-pt5">
+                            <h4>What is temperature of the crust?</h4>
+                            <p>
+                                0 degress F
+                            </p>
+                        </div>
                         <button class="button" style="float:left;display:none;" id="crustBack">Back</button>
                         <button class="button" style="float:right;display:none;" id="crustNext">Next</button>
                         <div style="clear:both;"></div>
@@ -96,13 +108,41 @@
                     <div class="col col-md-8 page bootcamp-page" id="mantlepage">
                         <h3>Earth's Mantle</h3>
                         <div class="bootcamp-section bootcamp-section-mantle" id="mantle-pt1">
-                            Hi
+                            <h4>Where is the upper and lower mantle located?</h4>
+                            <img src="http://b1ca250e5ed661ccf2f1-da4c182123f5956a3d22aa43eb816232.r10.cf1.rackcdn.com/contentItem-3735102-22240142-drztckwio0x35-or.gif" class="img-responsive">
+                            <p>For our purposes, "mantle" in the picture refers to "lower mantle" for us.</p>
                         </div>
                         <div class="bootcamp-section bootcamp-section-mantle" id="mantle-pt2">
-                            Hi 2
+                            <h4>What&apos;s the upper mantle state of matter?</h4>
+                            <p>The upper mantle&apos;s state of matter is soft plastic (solid).</p>
                         </div>
                         <div class="bootcamp-section bootcamp-section-mantle" id="mantle-pt3">
-                            Hi 3
+                            <h4>How thick is the upper mantle?</h4>
+                            <p>The upper mantle is 410 kilometers thick.</p>
+                        </div>
+                        <div class="bootcamp-section bootcamp-section-mantle" id="mantle-pt4">
+                            <h4>What is the upper mantle made of?</h4>
+                            <p>The upper mantle is made of silicon, iron, oxygen, magnesium, and aluminum.</p>
+                        </div>
+                        <div class="bootcamp-section bootcamp-section-mantle" id="mantle-pt5">
+                            <h4>How hot is the upper mantle?</h4>
+                            <p>The upper mantle is about 870 degress celcius.</p>
+                        </div>
+                        <div class="bootcamp-section bootcamp-section-mantle" id="mantle-pt6">
+                            <h4>True or False: The lower mantle is the biggest section of the Earth&apos;s interior.</h4>
+                            <p>True, the lower mantle is 55% of the Earth in volume.</p>
+                        </div>
+                        <div class="bootcamp-section bootcamp-section-mantle" id="mantle-pt7">
+                            <h4>How thick is the lower mantle?</h4>
+                            <p>The lower mantle is about 2900 kilometers thick.</p>
+                        </div>
+                        <div class="bootcamp-section bootcamp-section-mantle" id="mantle-pt8">
+                            <h4>What is the lower mantle made of?</h4>
+                            <p>Possible Answers: Iron, silica, magnesium, and oxygen.</p>
+                        </div>
+                        <div class="bootcamp-section bootcamp-section-mantle" id="mantle-pt9">
+                            <h4>What is the average temperature of the lower mantle?</h4>
+                            <p>The average temperature of the lower mantle is about 3700 degrees celcius.</p>
                         </div>
                         <button class="button" style="float:left;display:none;" id="mantleBack">Back</button>
                         <button class="button" style="float:right;display:none;" id="mantleNext">Next</button>
@@ -126,7 +166,50 @@
                 </div>
             </div>
             <div class="container" id="testContainer">
-                
+                <h3>Pass this test to compete in Jeopardy! 2.0. You are allowed 1 mistake.</h3>
+                <hr>
+                <h2 class="text-center">Question 1: <span id="test-question-title">On average, how thick is the crust?</span></h2>
+                <div id="test-progress"></div>
+                <div class="test-question">
+                    <p>Details go here</p>
+                    <div class="test-answers">
+                        <button class="button" data-correct="true">A Answer</button>
+                        <button class="button" data-correct="false">B Answer</button>
+                        <button class="button" data-correct="false">C Answer</button>
+                    </div>
+                </div>
+                <div class="test-question">
+                    <p>Details go here 2</p>
+                    <div class="test-answers">
+                        <button class="button" data-correct="true">A Answer</button>
+                        <button class="button" data-correct="false">B Answer</button>
+                        <button class="button" data-correct="false">C Answer</button>
+                    </div>
+                </div>
+                <div class="test-question">
+                    <p>Details go here 23</p>
+                    <div class="test-answers">
+                        <button class="button" data-correct="true">A Answer</button>
+                        <button class="button" data-correct="false">B Answer</button>
+                        <button class="button" data-correct="false">C Answer</button>
+                    </div>
+                </div>
+                <div id="test-correct" style="display:none">
+                    <h3>Corrrect!</h3>
+                </div>
+                <div id="test-incorrect" style="display:none">
+                    <h3>Incorrect.</h3>
+                </div>
+                <div id="test-fail" style="display:none">
+                    <h3>You Failed.</h3>
+                    <h4>You got <span class="test-result"></span> correct. Unfortunately, you are allowed only one mistake.</h4>
+                    <button class="button test-review">Review mistakes</button>
+                </div>
+                <div id="test-pass" style="display:none">
+                    <h3>You Passed! You can now compete in Jeopardy! 2.0.</h3>
+                    <h4>You got <span class="test-result"></span> correct.</h4>
+                    <button class="button test-review">Review mistakes</button>
+                </div>
             </div>
             <div style="clear:both;"></div>
         </div>
@@ -140,17 +223,22 @@
         <footer class="footer container container-normal">
             <div id="messagesContainer" class="sfx-button-click">
                 <div class="message">
-                    <p class="message-content" id="message-content" style="display:none;">
-                        You&apos;re going to LOSE!!!
-                    </p>
+                    <p class="message-content" id="message-content" style="display:none;"></p>
                     <img class="message-pic" id="message-pic" style="display:none;">
                     <span class="message-time" id="message-time" style="display:none;">2:14 PM</span>
                 </div>
+            </div>
+            <div id="niceContainer" style="display:none">
+                <h3>Fine. I&apos;ll be nice.</h3>
+            </div>
+            <div id="eduContainer" style="display:none">
+                <h3>Because you are in education mode, insults are not allowed.</h3>
             </div>
         </footer>
         <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="https://vjs.zencdn.net/5.5.3/video.js"></script>
+        <script src="scripts/libs/ProgressBarWars.js"></script>
         <script src="scripts/libs/bootbox.min.js"></script>
         <script src="scripts/insults-female.js"></script>
         <script src="scripts/insults-male.js"></script>
