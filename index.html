@@ -26,6 +26,7 @@
                         <hr>
                         <h3>Settings...</h3>
                         <button class="button" id="changeGender">Change Gender</button>
+                        <button class="button" id="changePoison">Change Poison</button>
                     </div>
                     <div class="col col-md-8">
                         <h3>Or Watch A Trailer</h3>
@@ -56,8 +57,8 @@
                         <button class="button bootcamp-button bootcamp-crust">Crust</button><br>
                         <button class="button bootcamp-button bootcamp-mantle">Mantle</button><br>
                         <button class="button bootcamp-button bootcamp-core">Core</button><br>
+                        <button class="button bootcamp-button bootcamp-continue">Continue</button><br>
                         <button class="button bootcamp-button bootcamp-chooser" style="display:none">Open Chooser</button>
-                        <button class="button bootcamp-button bootcamp-continue">Continue</button>
                     </div>
                     <div class="col col-md-8 page" id="homepage">
                         <svg width="400px" height="400px" viewBox="0 0 350 350" id="earth" style="width:100%;height:auto;max-width:600px;">
@@ -127,6 +128,13 @@
                 
             </div>
             <div style="clear:both;"></div>
+        </div>
+        <div style="display:none;" id="avatarPicker">
+            <div class="blacktext" style="text-align:center">
+                <img class="pick-your-poison-img img-responsive pick-your-poison-male" src="loading-icon.png" data-src="avatars/female-avatar-1.jpg">
+
+                <img class="pick-your-poison-img img-responsive pick-your-poison-female" src="loading-icon.png" data-src="avatars/male-avatar-1.jpg">
+            </div>
         </div>
         <footer class="footer container container-normal">
             <div id="messagesContainer">

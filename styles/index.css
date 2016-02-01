@@ -51,10 +51,53 @@ p {
     display:none;
 }
 
+.pick-your-poison-img {
+    display:inline-block;
+    width: 250px;
+    margin: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.pick-your-poison-active {
+    border: 3px solid rgba(0, 204, 255, 0.5);
+}
+
+.big-modal .modal-dialog {
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+@media(min-width:768px) {
+    .big-modal .modal-dialog {
+        margin-left: 20px;
+        margin-right: 20px;
+        width: auto;
+    }
+}
+@media(min-width:992px) {
+    .big-modal .modal-dialog {
+        margin: auto;
+        width: 850px;
+    }
+}
+@media(min-width:1200px) {
+    .big-modal .modal-dialog {
+        margin: auto;
+        width: 950px;
+    }
+}
+
 #messagesContainer {
     overflow:hidden;
     max-height: 100%;
     height:140px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .message {
     height: 140px;

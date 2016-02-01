@@ -104,6 +104,16 @@ window.pages.bootcamp = {
                 case $core_page:
                     controller.startTest();
                     break;
+                case $home_page:
+                    $(".bootcamp-active").removeClass("bootcamp-active");
+                    $(".bootcamp-crust").addClass("bootcamp-active");
+                    $active_page.fadeOut(function() {
+                        $(".bootcamp-page").hide();
+                        $crust_page.fadeIn();
+                        $active_page = $crust_page;
+                    });
+                    $(".bootcamp-chooser").fadeIn();
+                    break;
             }
         });
         

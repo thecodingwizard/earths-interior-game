@@ -4,9 +4,9 @@ var backStack = [];
 var timeBeforeNextInsult = 30000;
 
 $(document).ready(function() {
-    
     if (!("gender" in window.localStorage)) {
         bootbox.dialog({
+            closeButton: false,
             message: "<span class='blacktext'>Choose your gender...</span>",
             title: "<span class='blacktext'>Choose your gender</span>",
             buttons: {
@@ -15,8 +15,7 @@ $(document).ready(function() {
                     className: "button small-button vert-auto",
                     callback: function() {
                         window.localStorage.gender = "female";
-                        handleMusic();
-                        handleContainers();
+                        genderPickedCallback();
                     }
                 },
                 main: {
@@ -24,21 +23,19 @@ $(document).ready(function() {
                     className: "button small-button vert-auto",
                     callback: function() {
                         window.localStorage.gender = "male";
-                        handleMusic();
-                        handleContainers();
+                        genderPickedCallback();
                     }
                 }
             }
         });
     } else {
-        handleMusic();
-        handleContainers();
+        genderPickedCallback();
     }
     
     $("#changeGender").click(function() {
         bootbox.dialog({
             message: "<span class='blacktext'>Choose your gender...\n\nWARNING! Changing your gender" +
-                            "will reload the page and result in the loss of all progress made!</span>",
+                            " will reload the page and result in the loss of all progress made!</span>",
             title: "<span class='blacktext'>Choose your gender</span>",
             buttons: {
                 success: {
@@ -46,6 +43,7 @@ $(document).ready(function() {
                     className: "button small-button vert-auto",
                     callback: function() {
                         window.localStorage.gender = "female";
+                        window.localStorage.removeItem("avatar");
                         window.location.reload();
                     }
                 },
@@ -54,6 +52,7 @@ $(document).ready(function() {
                     className: "button small-button vert-auto",
                     callback: function() {
                         window.localStorage.gender = "male";
+                        window.localStorage.removeItem("avatar");
                         window.location.reload();
                     }
                 }
@@ -61,7 +60,100 @@ $(document).ready(function() {
         });
     });
     
+    $("#changePoison").click(function() {
+        bootbox.dialog({
+            message: "<span class='blacktext'>Choose your poison...\n\nWARNING! Changing your poison" +
+                            " will reload the page and result in the loss of all progress made!</span>" + $("#avatarPicker").html(),
+            title: "<span class='blacktext'>Choose your poison</span>",
+            className: "big-modal",
+            buttons: {
+                main: {
+                    label: "<span class='blacktext'>OK</span>",
+                    className: "button small-button vert-auto",
+                    callback: function() {
+                        if (choice == null) {
+                            alert("Please choose your poison");
+                            return false;
+                        } else {
+                            window.localStorage.avatar = choice;
+                            window.location.reload();
+                        }
+                    }
+                }
+            }
+        });
+        if (window.localStorage.gender == "male") {
+            $(".pick-your-poison-male").each(function(index, element) {
+                $(element).attr("src", $(element).data("src"));
+            });
+            $(".pick-your-poison-female").hide();
+        } else {
+            $(".pick-your-poison-female").each(function(index, element) {
+                $(element).attr("src", $(element).data("src"));
+            });
+            $(".pick-your-poison-male").hide();
+        }
+        var choice;
+        $(".pick-your-poison-img").each(function(index, element) {
+            $(element).off("click");
+            $(element).click(function() {
+                $(".pick-your-poison-active").removeClass("pick-your-poison-active");
+                choice = $(element).data("src");
+                $(element).addClass("pick-your-poison-active");
+            });
+        });
+    });
+    
 });
+
+function genderPickedCallback() {
+    if (!("avatar" in window.localStorage)) {
+        if (window.localStorage.gender == "male") {
+            $(".pick-your-poison-male").each(function(index, element) {
+                $(element).attr("src", $(element).data("src"));
+            });
+            $(".pick-your-poison-female").hide();
+        } else {
+            $(".pick-your-poison-female").each(function(index, element) {
+                $(element).attr("src", $(element).data("src"));
+            });
+            $(".pick-your-poison-male").hide();
+        }
+        bootbox.dialog({
+            closeButton: false,
+            message: $("#avatarPicker").html(),
+            className: "big-modal",
+            title: "<span class='blacktext'>Pick your poison</span>",
+            buttons: {
+                main: {
+                    label: "<span class='blacktext'>OK</span>",
+                    className: "button small-button vert-auto",
+                    callback: function() {
+                        if (choice == null) {
+                            alert("Please choose your poison");
+                            return false;
+                        } else {
+                            window.localStorage.avatar = choice;
+                            handleMusic();
+                            handleContainers();
+                        }
+                    }
+                }
+            }
+        });
+        var choice;
+        $(".pick-your-poison-img").each(function(index, element) {
+            $(element).click(function() {
+                $(".pick-your-poison-active").removeClass("pick-your-poison-active");
+                choice = $(element).data("src");
+                $(element).addClass("pick-your-poison-active");
+            });
+        });
+    } else {
+        handleMusic();
+        handleContainers();
+    }
+}
 
 function handleContainers() {
     var $homeContainer = $("#homeContainer");
@@ -187,19 +279,11 @@ function handleContainers() {
         mute: function() {
             muteMusic();
         },
-        showMessage: function(data) {
+        showMessage: function(message) {
             this.lastInsultTime = Date.now();
             $("#message-content, #message-time, #message-pic").fadeOut(function() {
-                $("#message-content").html(data.message);
-                if (data.pic) {
-                    $("#message-pic").attr("src", data.pic);
-                } else {
-                    if (window.localStorage.gender == "male") {
-                        $("#message-pic").attr("src", "avatars/female-avatar-1.jpg");
-                    } else {
-                        $("#message-pic").attr("src", "avatars/male-avatar-1.jpg");
-                    }
-                }
+                $("#message-content").html(message);
+                $("#message-pic").attr("src", window.localStorage.avatar);
                 $("#message-time").text(new Date().toLocaleTimeString());
                 $(this).fadeIn();
             });
@@ -209,7 +293,13 @@ function handleContainers() {
     
     showInsult(controller);
     
-    setTimeout(showInsult(controller), timeBeforeNextInsult);
+    var lastInsultClicked = 0;
+    $("#messagesContainer").click(function() {
+        if (Date.now() - lastInsultClicked > 820) {
+            showInsult(controller, true);
+            lastInsultClicked = Date.now();
+        }
+    });
     
     $("#back").click(function() {
         console.log(backStack);
@@ -244,8 +334,8 @@ function handleContainers() {
 }
 
 var insultIndex = 0;
-function showInsult(controller) {
-    if (Date.now() - controller.lastInsultTime > timeBeforeNextInsult - 1000) {
+function showInsult(controller, override) {
+    if (Date.now() - controller.lastInsultTime > timeBeforeNextInsult - 1000 || override) {
         if (window.localStorage.gender == "male") {
             if (window.insults.male.length <= insultIndex) {
                 insultIndex = 0;
