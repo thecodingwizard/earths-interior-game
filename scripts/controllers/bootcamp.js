@@ -53,27 +53,59 @@ window.pages.bootcamp = {
             return index;
         }
         
+        var lastButtonClickTime = 0;
+        
         $("#crustNext").click(function() {
+            if (Date.now() - lastButtonClickTime <= 500) {
+                return;
+            } else {
+                lastButtonClickTime = Date.now();
+            }
             crustIndex = moveAndShow(false, "crust", crustIndex, $(this), $("#crustBack"));
         });
         
         $("#crustBack").click(function() {
+            if (Date.now() - lastButtonClickTime <= 500) {
+                return;
+            } else {
+                lastButtonClickTime = Date.now();
+            }
             crustIndex = moveAndShow(true, "crust", crustIndex, $("#crustNext"), $(this));
         });
         
         $("#mantleNext").click(function() {
+            if (Date.now() - lastButtonClickTime <= 500) {
+                return;
+            } else {
+                lastButtonClickTime = Date.now();
+            }
             mantleIndex = moveAndShow(false, "mantle", mantleIndex, $(this), $("#mantleBack"));
         });
         
         $("#mantleBack").click(function() {
+            if (Date.now() - lastButtonClickTime <= 500) {
+                return;
+            } else {
+                lastButtonClickTime = Date.now();
+            }
             mantleIndex = moveAndShow(true, "mantle", mantleIndex, $("#mantleNext"), $(this));
         });
         
         $("#coreNext").click(function() {
+            if (Date.now() - lastButtonClickTime <= 500) {
+                return;
+            } else {
+                lastButtonClickTime = Date.now();
+            }
             coreIndex = moveAndShow(false, "core", coreIndex, $(this), $("#coreBack"));
         });
         
         $("#coreBack").click(function() {
+            if (Date.now() - lastButtonClickTime <= 500) {
+                return;
+            } else {
+                lastButtonClickTime = Date.now();
+            }
             coreIndex = moveAndShow(true, "core", coreIndex, $("#coreNext"), $(this));
         });
 

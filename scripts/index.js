@@ -32,7 +32,7 @@ $(document).ready(function() {
         $("#mute").hide();
         $("#muteMusic").hide();
     }
-    if (!("gender" in window.localStorage)) {
+    if (!("gender" in window.localStorage) || ("eduMode" in window.localStorage)) {
         bootbox.dialog({
             closeButton: false,
             message: "<span class='blacktext'>Choose your gender...</span>",
@@ -135,7 +135,7 @@ $(document).ready(function() {
 });
 
 function genderPickedCallback() {
-    if (!("avatar" in window.localStorage)) {
+    if (!("avatar" in window.localStorage) || "eduMode" in window.localStorage) {
         if (window.localStorage.gender == "male") {
             $(".pick-your-poison-male").each(function(index, element) {
                 $(element).attr("src", $(element).data("src"));
