@@ -151,7 +151,7 @@ function genderPickedCallback() {
             closeButton: false,
             message: $("#avatarPicker").html(),
             className: "big-modal",
-            title: "<span class='blacktext'>Pick your poison</span>",
+            title: "<span class='blacktext'>Pick your poison (Your enemy)</span>",
             buttons: {
                 main: {
                     label: "<span class='blacktext'>OK</span>",

@@ -151,7 +151,7 @@
                     <div class="col col-md-8 page bootcamp-page" id="corepage">
                         <h3>Earth's Core</h3>
                         <div class="bootcamp-section bootcamp-section-core" id="core-pt1">
-                            Hi2
+                            <h4>Where is the inner and outer core located?</h4>
                         </div>
                         <div class="bootcamp-section bootcamp-section-core" id="core-pt2">
                             Hi2 1
@@ -168,9 +168,9 @@
             <div class="container" id="testContainer">
                 <h3>Pass this test to compete in Jeopardy! 2.0. You are allowed 1 mistake.</h3>
                 <hr>
-                <h2 class="text-center">Question 1: <span id="test-question-title">On average, how thick is the crust?</span></h2>
+                <h2 class="text-center">Question: <span id="test-question-title"></span></h2>
                 <div id="test-progress"></div>
-                <div class="test-question">
+                <div class="test-question" data-title="Question 1">
                     <p>Details go here</p>
                     <div class="test-answers">
                         <button class="button" data-correct="true">A Answer</button>
@@ -178,7 +178,7 @@
                         <button class="button" data-correct="false">C Answer</button>
                     </div>
                 </div>
-                <div class="test-question">
+                <div class="test-question" data-title="Question 2">
                     <p>Details go here 2</p>
                     <div class="test-answers">
                         <button class="button" data-correct="true">A Answer</button>
@@ -186,7 +186,7 @@
                         <button class="button" data-correct="false">C Answer</button>
                     </div>
                 </div>
-                <div class="test-question">
+                <div class="test-question" data-title="Question 3">
                     <p>Details go here 23</p>
                     <div class="test-answers">
                         <button class="button" data-correct="true">A Answer</button>
@@ -210,6 +210,12 @@
                     <h4>You got <span class="test-result"></span> correct.</h4>
                     <button class="button test-review">Review mistakes</button>
                 </div>
+                <div id="test-review-data" style="display:none">
+                    <h4>You chose: <span id="test-review-choice"></span></h4>
+                    <h4>The correct answer is: <span id="test-review-correct"></span></h4>
+                </div>
+                <button class="button test-review-next" style="display: none;">Next</button>
+                <button class="button test-retake" style="display: none;">Retake Test</button>
             </div>
             <div style="clear:both;"></div>
         </div>
