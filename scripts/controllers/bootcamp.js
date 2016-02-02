@@ -10,6 +10,7 @@ window.pages.bootcamp = {
         var $crust_page = $("#crustpage");
         var $mantle_page = $("#mantlepage");
         var $core_page = $("#corepage");
+        var $general_page = $("#generalpage");
         var $active_page = $home_page;
         
         var crustIndex = 0;
@@ -20,6 +21,9 @@ window.pages.bootcamp = {
         
         var coreIndex = 0;
         coreIndex = moveAndShow(false, "core", coreIndex, $("#coreNext"), $("#coreBack"));
+        
+        var generalIndex = 0;
+        generalIndex = moveAndShow(false, "general", generalIndex, $("#generalNext"), $("#generalBack"));
         
         function moveAndShow(decrement, title, index, $buttonNext, $buttonBack) {
             if (decrement) index--; else index++;
@@ -108,6 +112,24 @@ window.pages.bootcamp = {
             }
             coreIndex = moveAndShow(true, "core", coreIndex, $("#coreNext"), $(this));
         });
+        
+        $("#generalNext").click(function() {
+            if (Date.now() - lastButtonClickTime <= 500) {
+                return;
+            } else {
+                lastButtonClickTime = Date.now();
+            }
+            generalIndex = moveAndShow(false, "general", generalIndex, $(this), $("#generalBack"));
+        });
+        
+        $("#generalBack").click(function() {
+            if (Date.now() - lastButtonClickTime <= 500) {
+                return;
+            } else {
+                lastButtonClickTime = Date.now();
+            }
+            generalIndex = moveAndShow(true, "general", generalIndex, $("#generalNext"), $(this));
+        });
 
         $home_page.show();
         
@@ -134,6 +156,16 @@ window.pages.bootcamp = {
                     $(".bootcamp-chooser").fadeIn();
                     break;
                 case $core_page:
+                    $(".bootcamp-active").removeClass("bootcamp-active");
+                    $(".bootcamp-general").addClass("bootcamp-active");
+                    $active_page.fadeOut(function() {
+                        $(".bootcamp-page").hide();
+                        $general_page.fadeIn();
+                        $active_page = $general_page;
+                    });
+                    $(".bootcamp-chooser").fadeIn();
+                    break;
+                case $general_page:
                     controller.startTest();
                     break;
                 case $home_page:
@@ -178,6 +210,17 @@ window.pages.bootcamp = {
                 $(".bootcamp-page").hide();
                 $core_page.fadeIn();
                 $active_page = $core_page;
+            });
+            $(".bootcamp-chooser").fadeIn();
+        });
+        
+        $(".bootcamp-general").click(function() {
+            $(".bootcamp-active").removeClass("bootcamp-active");
+            $(".bootcamp-general").addClass("bootcamp-active");
+            $active_page.fadeOut(function() {
+                $(".bootcamp-page").hide();
+                $general_page.fadeIn();
+                $active_page = $general_page;
             });
             $(".bootcamp-chooser").fadeIn();
         });
