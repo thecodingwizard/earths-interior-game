@@ -11,6 +11,7 @@ window.pages.home = {
         var $btnBootcamp = $("#homeBootcamp");
         var $btnTest = $("#homeTest");
         var $btnJeopardy = $("#homeJeopardy");
+        var alternativeTrailer = "media/trailer-opt-2.mp4";
         
         $btnBootcamp.click(function() {
             controller.startBootcamp();
@@ -34,13 +35,28 @@ window.pages.home = {
             if (window.localStorage.gender == "female") {
                 vid = "media/female-trailer-vid.mp4";
             }
-            this.src([
-                { type: "video/mp4", src: vid }
-            ]);
+            if (Math.round(Math.random()) == 0) {
+                this.src([
+                    { type: "video/mp4", src: vid }
+                ]);
+            } else {
+                this.src([
+                    { type: "video/mp4", src: alternativeTrailer }
+                ]);
+                alternativeTrailer = vid;
+            }
             window.pages.home.vid = this;
             this.on("play", function() {
                 controller.mute();
             });
+        });
+        
+        $("#vidTrailer-switch").click(function() {
+            var alt = alternativeTrailer;
+            alternativeTrailer = window.pages.home.vid.currentSrc();
+            window.pages.home.vid.src([
+                { type: "video/mp4", src: alt }
+            ]);
         });
     },
     onShowing: function() {
