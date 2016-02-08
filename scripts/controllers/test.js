@@ -26,6 +26,8 @@ window.pages.test = {
                 progressbar.moveTo(Math.round(questionIndex/questions*100));
                 if ($(this).data("correct") == true) {
                     correctCount++;
+                    $("#test-correct-message").html("");
+                    $("#test-correct-message").html($(this).data("message"));
                     $(element).fadeOut(function() {
                         $("#test-correct").fadeIn(function() {
                             setTimeout(function() {
@@ -38,11 +40,25 @@ window.pages.test = {
                 } else {
                     incorrectCount++;
                     incorrectIndexes.push(index);
+                    var correct = "";
+                    var first = true;
+                    $(element).find(".test-answers").find(".button[data-correct='true']").each(function(index, el) {
+                        if (first) {
+                            first = false;
+                            correct += $(el).text();
+                        } else {
+                            correct += " or " + $(el).text();
+                        }
+                    })
+                    
                     incorrectData.push({
                         "choice": $(this).text(),
-                        "correct": $(element).find(".test-answers").find(".button[data-correct='true']").text(),
-                        "title": $("#test-question-title").text()
-                    })
+                        "correct": correct,
+                        "title": $("#test-question-title").text(),
+                        "message": $(element).find(".test-answers").find(".button[data-correct='true']").data("message")
+                    });
+                    $("#test-incorrect-message").html("");
+                    $("#test-incorrect-message").html($(this).data("message"));
                     $(element).fadeOut(function() {
                         $("#test-incorrect").fadeIn(function() {
                             setTimeout(function() {
@@ -68,6 +84,7 @@ window.pages.test = {
                     if (incorrectIndex < incorrectIndexes.length - 1) {
                         $(".test-review-next").fadeIn();
                     }
+                    $("#test-review-message").html(incorrectData[incorrectIndex].message);
                     $(".test-question:nth(" + incorrectIndexes[incorrectIndex] + ")").fadeIn();
                     $("#test-question-title").text(incorrectData[incorrectIndex].title);
                     $("#test-review-choice").text(incorrectData[incorrectIndex].choice);

@@ -242,3 +242,7 @@ hr {
     background-color: rgba(0, 204, 255, 0.5);
     transform: scale(1.1, 1.1);
 }
+
+.modal {
+    overflow: auto !important;
+}

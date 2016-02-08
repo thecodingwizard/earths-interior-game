@@ -22,7 +22,7 @@
                         <button class="button" id="homeIntroduction">Introduction</button>
                         <button class="button" id="homeBootcamp">Bootcamp</button>
                         <button class="button" id="homeTest">Test</button>
-                        <button class="button" id="homeJeopardy">Jeopardy 2.0!</button>
+                        <button class="button" id="homeJeopardy">Jeopardy 2.0!<br>Start here if you want.</button>
                         <hr>
                         <h3>Settings...</h3>
                         <button class="button" id="changeGender">Change Gender</button>
@@ -75,7 +75,7 @@
                         </svg>
                     </div>
                     <div class="col col-md-8 page bootcamp-page" id="crustpage">
-                        <h3>Earth's Crust</h3>
+                        <h3>Earth&apos;s Crust</h3>
                         <div class="bootcamp-section bootcamp-section-crust" id="crust-pt1">
                             <h4>Where is the Crust?</h4>
                             <img src="http://www.ducksters.com/science/earth_composition.gif" class="img-responsive">
@@ -101,7 +101,7 @@
                         <div class="bootcamp-section bootcamp-section-crust" id="crust-pt5">
                             <h4>What is temperature of the crust?</h4>
                             <p>
-                                0 degress F
+                                0 degrees C
                             </p>
                         </div>
                         <button class="button" style="float:left;display:none;" id="crustBack">Back</button>
@@ -109,7 +109,7 @@
                         <div style="clear:both;"></div>
                     </div>
                     <div class="col col-md-8 page bootcamp-page" id="mantlepage">
-                        <h3>Earth's Mantle</h3>
+                        <h3>Earth&apos;s Mantle</h3>
                         <div class="bootcamp-section bootcamp-section-mantle" id="mantle-pt1">
                             <h4>Where is the upper and lower mantle located?</h4>
                             <img src="http://b1ca250e5ed661ccf2f1-da4c182123f5956a3d22aa43eb816232.r10.cf1.rackcdn.com/contentItem-3735102-22240142-drztckwio0x35-or.gif" class="img-responsive">
@@ -152,7 +152,7 @@
                         <div style="clear:both;"></div>
                     </div>
                     <div class="col col-md-8 page bootcamp-page" id="corepage">
-                        <h3>Earth's Core</h3>
+                        <h3>Earth&apos;s Core</h3>
                         <div class="bootcamp-section bootcamp-section-core" id="core-pt1">
                             <h4>Where is the inner and outer core located?</h4>
                             <img src="http://www.ducksters.com/science/earth_composition.gif">
@@ -230,35 +230,176 @@
                 <hr>
                 <h2 class="text-center">Question: <span id="test-question-title"></span></h2>
                 <div id="test-progress"></div>
-                <div class="test-question" data-title="Question 1">
-                    <p>Details go here</p>
+                <div class="test-question" data-title="How thick, on average, is the continental crust?">
                     <div class="test-answers">
-                        <button class="button" data-correct="true">A Answer</button>
-                        <button class="button" data-correct="false">B Answer</button>
-                        <button class="button" data-correct="false">C Answer</button>
+                        <button class="button" data-correct="true">30 kilometers</button>
+                        <button class="button" data-correct="false">30 miles</button>
+                        <button class="button" data-correct="false">5 kilometers</button>
+                        <button class="button" data-correct="false">5 miles</button>
+                        <button class="button" data-correct="false">20 kilometers</button>
+                        <button class="button" data-correct="false">20 miles</button>
                     </div>
                 </div>
-                <div class="test-question" data-title="Question 2">
-                    <p>Details go here 2</p>
+                <div class="test-question" data-title="On average, how thick is oceanic crust?">
                     <div class="test-answers">
-                        <button class="button" data-correct="true">A Answer</button>
-                        <button class="button" data-correct="false">B Answer</button>
-                        <button class="button" data-correct="false">C Answer</button>
+                        <button class="button" data-correct="false">25 kilometers</button>
+                        <button class="button" data-correct="false">2000 kilometers</button>
+                        <button class="button" data-correct="true">5 kilometers</button>
                     </div>
                 </div>
-                <div class="test-question" data-title="Question 3">
-                    <p>Details go here 23</p>
+                <div class="test-question" data-title="What is the crust made of? There is more than one answer. Choose one.">
                     <div class="test-answers">
-                        <button class="button" data-correct="true">A Answer</button>
-                        <button class="button" data-correct="false">B Answer</button>
-                        <button class="button" data-correct="false">C Answer</button>
+                        <button class="button" data-correct="false">Manganese</button>
+                        <button class="button" data-correct="true">Aluminum</button>
+                        <button class="button" data-correct="true">Silicon</button>
+                        <button class="button" data-correct="false">Plastic</button>
+                        <button class="button" data-correct="false">Granite</button>
                     </div>
                 </div>
+                <div class="test-question" data-title="What is the temperature of the crust?">
+                    <div class="test-answers">
+                        <button class="button" data-correct="true">0&deg; Celcius</button>
+                        <button class="button" data-correct="false">15&deg; Celcius</button>
+                        <button class="button" data-correct="false">65&deg; Celcius</button>
+                    </div>
+                </div>
+                <div class="test-question" data-title="What state of matter is the upper mantle made of?">
+                    <div class="test-answers">
+                        <!-- Soft, plasticy -->
+                        <button class="button" data-correct="true" data-message="The upper mantle is soft and plasticy.">Solid</button>
+                        <button class="button" data-correct="false">Liquid</button>
+                        <button class="button" data-correct="false">Gas</butotn>
+                    </div>
+                </div>
+                <div class="test-question" data-title="How thick is the upper mantle?">
+                    <div class="test-answers">
+                        <button class="button" data-correct="false">350 km</button>
+                        <button class="button" data-correct="false">200 km</button>
+                        <button class="button" data-correct="true">410 km</button>
+                    </div>
+                </div>
+                <div class="test-question" data-title="What is the upper mantle made of? There is more than one correct answer. Choose one.">
+                    <div class="test-answers">
+                        <button class="button" data-correct="true">Oxygen</button>
+                        <button class="button" data-correct="false">Granite</button>
+                        <button class="button" data-correct="false">Potassium</button>
+                        <button class="button" data-correct="true">Aluminum</button>
+                    </div>
+                </div>
+                <div class="test-question" data-title="How hot is the upper mantle?">
+                    <div class="test-answers">
+                        <button class="button" data-correct="false">770&deg; Celcius</button>
+                        <button class="button" data-correct="false">780&deg; Celcius</button>
+                        <button class="button" data-correct="false">2780&deg; Celcius</button>
+                        <button class="button" data-correct="true">880&deg; Celcius</button>
+                    </div>
+                </div>
+                <div class="test-question" data-title="True or false: The lower mantle is the biggest section of the Earth&apos;s interior.">
+                    <div class="test-answers">
+                        <button class="button" data-correct="true" data-message="It takes up 55% of the Earth in volume.">True</button>
+                        <button class="button" data-correct="false">False</button>
+                    </div>
+                </div>
+                <div class="test-question" data-title="How thick is the lower mantle?">
+                    <div class="test-answers">
+                        <button class="button" data-correct="false">2800 kilometers</button>
+                        <button class="button" data-correct="false">2700 kilometers</button>
+                        <button class="button" data-correct="true">2900 kilometers</button>
+                        <button class="button" data-correct="false">3000 kilometers</button>
+                        <button class="button" data-correct="false">3100 kilometers</button>
+                    </div>
+                </div>
+                <div class="test-question" data-title="What is the lower mantle made of? There is more than 1 correct answer.">
+                    <div class="test-answers">
+                        <button class="button" data-correct="true">Silica</button>
+                        <button class="button" data-correct="false">Graphite</button>
+                        <button class="button" data-correct="true">Iron</button>
+                        <button class="button" data-correct="false">Granite</button>
+                    </div>
+                </div>
+                <div class="test-question" data-title="What is the lower mantle&apos;s average temperature?">
+                    <div class="test-answers">
+                        <button class="button" data-correct="true">3700&deg; Celcius</button>
+                        <button class="button" data-correct="false">4000&deg; Celcius</button>
+                        <button class="button" data-correct="false">2700&deg; Celcius</button>
+                        <button class="button" data-correct="false">2000&deg; Celcius</button>
+                    </div>
+                </div>
+                <div class="test-question" data-title="How thick is the inner core?">
+                    <div class="test-answers">
+                        <button class="button" data-correct="false">6200 km</button>
+                        <button class="button" data-correct="false">6300 km</button>
+                        <button class="button" data-correct="true">6400 km</button>
+                        <button class="button" data-correct="false">6500 km</button>
+                    </div>
+                </div>
+                <div class="test-question" data-title="How thick is the outer core?">
+                    <div class="test-answers">
+                        <button class="button" data-correct="false">4900 km</button>
+                        <button class="button" data-correct="false">5000 km</button>
+                        <button class="button" data-correct="true">5100 km</button>
+                        <button class="button" data-correct="false">5200 km</button>
+                    </div>
+                </div>
+                <div class="test-question" data-title="What is the inner core made of?">
+                    <div class="test-answers">
+                        <button class="button" data-correct="false">More than one element</button>
+                        <button class="button" data-correct="false">Nobody Knows</button>
+                        <button class="button" data-correct="false">Solid Nickel</button>
+                        <button class="button" data-correct="true">Solid Iron</button>
+                    </div>
+                </div>
+                <div class="test-question" data-title="What is the outer core made of?">
+                    <div class="test-answers">
+                        <button class="button" data-correct="true">Molten Iron and Nickel</button>
+                        <button class="button" data-correct="false">More than one element</button>
+                        <button class="button" data-correct="false">Nobody Knows</button>
+                        <button class="button" data-correct="false">Molten Iron</button>
+                        <button class="button" data-correct="false">Molten Nickel</button>
+                    </div>
+                </div>
+                <div class="test-question" data-title="How hot is the inner core?">
+                    <div class="test-answers">
+                        <button class="button" data-correct="false">7100&deg; Celcius</button>
+                        <button class="button" data-correct="true" data-message="Hotter than the surface of the sun">7200&deg; Celcius</button>
+                        <button class="button" data-correct="false">7300&deg; Celcius</button>
+                        <button class="button" data-correct="false">7400&deg; Celcius</button>
+                    </div>
+                </div>
+                <div class="test-question" data-title="How hot is the outer core?">
+                    <div class="test-answers">
+                        <button class="button" data-correct="false">4100&deg; Celcius</button>
+                        <button class="button" data-correct="false">4200&deg; Celcius</button>
+                        <button class="button" data-correct="true">4300&deg; Celcius</button>
+                        <button class="button" data-correct="false">4400&deg; Celcius</button>
+                    </div>
+                </div>
+                <div class="test-question" data-title="How is the inner core solid yet so hot?">
+                    <div class="test-answers">
+                        <button class="button" data-correct="false">Nuclear force</button>
+                        <button class="button" data-correct="true">Pressure</button>
+                        <button class="button" data-correct="false">Magic</button>
+                        <button class="button" data-correct="false">It was too hot</button>
+                        <button class="button" data-correct="false">Nobody Knows</button>
+                    </div>
+                </div>
+                <div class="test-question" data-title="What does the lithosphere include? There is more than 1 correct answer.">
+                    <div class="test-answers">
+                        <button class="button" data-correct="false">Lower Mantle</button>
+                        <button class="button" data-correct="true">Upper Mantle</button>
+                        <button class="button" data-correct="true">Crust</button>
+                        <button class="button" data-correct="false">Inner Core</button>
+                        <button class="button" data-correct="false">Outer Core</button>
+                    </div>
+                </div>
+                
                 <div id="test-correct" style="display:none">
-                    <h3>Corrrect!</h3>
+                    <h3>Correct!</h3>
+                    <div id="test-correct-message"></div>
                 </div>
                 <div id="test-incorrect" style="display:none">
                     <h3>Incorrect.</h3>
+                    <div id="test-incorrect-message"></div>
                 </div>
                 <div id="test-fail" style="display:none">
                     <h3>You Failed.</h3>
@@ -273,6 +414,7 @@
                 <div id="test-review-data" style="display:none">
                     <h4>You chose: <span id="test-review-choice"></span></h4>
                     <h4>The correct answer is: <span id="test-review-correct"></span></h4>
+                    <h4><span id="test-review-message"></span></h4>
                 </div>
                 <button class="button test-review-next" style="display: none;">Next</button>
                 <button class="button test-retake" style="display: none;">Retake Test</button>
@@ -284,10 +426,12 @@
                 <img class="pick-your-poison-img img-responsive pick-your-poison-male" src="loading-icon.png" data-src="avatars/female-avatar-1.jpg">
                 <img class="pick-your-poison-img img-responsive pick-your-poison-male" src="loading-icon.png" data-src="avatars/female-avatar-2.png">
                 <img class="pick-your-poison-img img-responsive pick-your-poison-male" src="loading-icon.png" data-src="avatars/female-avatar-3.png">
+                <img class="pick-your-poison-img img-responsive pick-your-poison-male" src="loading-icon.png" data-src="avatars/female-avatar-4.jpeg">
 
                 <img class="pick-your-poison-img img-responsive pick-your-poison-female" src="loading-icon.png" data-src="avatars/male-avatar-1.jpg">
                 <img class="pick-your-poison-img img-responsive pick-your-poison-female" src="loading-icon.png" data-src="avatars/male-avatar-2.png">
                 <img class="pick-your-poison-img img-responsive pick-your-poison-female" src="loading-icon.png" data-src="avatars/male-avatar-3.png">
+                <img class="pick-your-poison-img img-responsive pick-your-poison-female" src="loading-icon.png" data-src="avatars/male-avatar-4.jpeg">
             </div>
         </div>
         <footer class="footer container container-normal">
